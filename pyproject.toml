@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "smartposti-tracker"
+description = "Unofficial Python client and CLI for tracking SmartPosti / Posti parcels and watching for new events."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "kuttim" }]
+requires-python = ">=3.9"
+dependencies = ["requests>=2.25"]
+keywords = ["smartposti", "posti", "itella", "parcel", "tracking", "shipment", "estonia"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Utilities",
+  "Typing :: Typed",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.4"]
+
+[project.scripts]
+smartposti-track = "smartposti_tracker.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/kuttim/smartposti-tracker"
+Issues = "https://github.com/kuttim/smartposti-tracker/issues"
+Changelog = "https://github.com/kuttim/smartposti-tracker/blob/main/CHANGELOG.md"
+
+[tool.hatch.version]
+path = "src/smartposti_tracker/__init__.py"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["live: hits the real Posti API (run with: pytest -m live)"]
+addopts = "-m 'not live'"
+
+[tool.ruff]
+line-length = 110
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["UP006", "UP007", "UP035", "UP037", "UP045"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/smartposti_tracker/__init__.py" = ["E402"]

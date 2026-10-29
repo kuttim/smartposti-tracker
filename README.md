@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/kuttim/smartposti-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/kuttim/smartposti-tracker/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/smartposti-tracker)](https://pypi.org/project/smartposti-tracker/)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 
 An unofficial Python library and CLI for tracking **SmartPosti** (Estonia, Latvia,
@@ -33,7 +34,7 @@ NEW  JJFI12345678901234567  2026-10-29 11:02  The item has arrived at the parcel
 ## Installation
 
 ```bash
-pip install git+https://github.com/kuttim/smartposti-tracker.git
+pip install smartposti-tracker
 ```
 
 For development:

@@ -33,3 +33,15 @@ environment variable and is skipped if it is not set.
 - The API is undocumented. If it changes, describe what you observed (request,
   response shape) in the issue or PR. A HAR export from the browser's dev tools
   on the smartposti.ee tracking page is the easiest way to show it.
+
+## Releasing (maintainers)
+
+1. Bump `__version__` in `src/smartposti_tracker/__init__.py`.
+2. Move the **Unreleased** entries in `CHANGELOG.md` under the new version.
+3. Commit, then tag and push:
+   ```bash
+   git tag -s v0.2.0 -m "v0.2.0"
+   git push origin main v0.2.0
+   ```
+The `Release` workflow builds the package, publishes it to PyPI via Trusted
+Publishing, and creates a GitHub release.
